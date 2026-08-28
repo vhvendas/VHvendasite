@@ -63,3 +63,12 @@ No `script.js`, copie um bloco de produto completo, cole dentro da lista da cate
 
 As fotos principais e os ícones são carregados pela internet. Para vê-los, mantenha o computador conectado durante a visualização.
 
+## V4 — correção mobile
+- viewport reforçado para usar a largura real do celular;
+- proteção contra layout de desktop vazando horizontalmente;
+- layout mobile também é ativado por características de dispositivo/touch;
+- cards ocupam quase toda a largura da tela;
+- somente um produto fica em destaque, com parte do próximo aparecendo para indicar o arraste;
+- carrossel continua funcionando com toque e scroll-snap.
+
+Depois de publicar na Vercel, abra o link em uma nova aba/anônima ou atualize sem cache. No Chrome Android, mantenha **Site para computador** desmarcado.
