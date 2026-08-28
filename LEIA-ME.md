@@ -72,3 +72,26 @@ As fotos principais e os ícones são carregados pela internet. Para vê-los, ma
 - carrossel continua funcionando com toque e scroll-snap.
 
 Depois de publicar na Vercel, abra o link em uma nova aba/anônima ou atualize sem cache. No Chrome Android, mantenha **Site para computador** desmarcado.
+
+## V5 — detalhes do produto e comparação de 3 lojas
+
+Agora você pode tocar em um produto (por exemplo, **Fone Bluetooth**) para abrir uma janela no celular com:
+
+- descrição do produto;
+- Amazon;
+- Shopee;
+- Mercado Livre;
+- campo de preço de cada loja;
+- botão **Ver oferta** para cada marketplace.
+
+Os preços do Fone Bluetooth estão como `Consultar preço` porque preços reais mudam e não devem ser inventados. Para colocar um valor fixo, abra `script.js` e altere:
+
+```js
+prices: {
+  Amazon: "R$ 00,00",
+  Shopee: "R$ 00,00",
+  "Mercado Livre": "R$ 00,00",
+},
+```
+
+Na mesma parte, substitua os links de busca pelos seus links de afiliado em `links`.

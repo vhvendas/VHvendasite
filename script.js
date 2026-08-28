@@ -20,11 +20,20 @@ const categories = [
         name: "Fone Bluetooth",
         description: "Opção sem fio para música, chamadas e uso durante a rotina.",
         category: "Áudio",
-        market: "Amazon",
+        market: "3 lojas",
         marketClass: "market-amazon",
         icon: "headphones",
         artClass: "art-sage",
-        url: "https://www.amazon.com.br/s?k=fone+bluetooth",
+        prices: {
+          Amazon: "Consultar preço",
+          Shopee: "Consultar preço",
+          "Mercado Livre": "Consultar preço",
+        },
+        links: {
+          Amazon: "https://www.amazon.com.br/s?k=fone+bluetooth",
+          Shopee: "https://shopee.com.br/search?keyword=fone%20bluetooth",
+          "Mercado Livre": "https://lista.mercadolivre.com.br/fone-bluetooth",
+        },
       },
       {
         name: "Smartwatch inteligente",
@@ -168,6 +177,110 @@ const tabButtons = Array.from(document.querySelectorAll("[data-tab]"));
 const categoryIntro = document.querySelector("#category-intro");
 const productGrid = document.querySelector("#product-grid");
 const catalogContent = document.querySelector("#catalog-content");
+const productModal = document.querySelector("#product-modal");
+const productModalTitle = document.querySelector("#product-modal-title");
+const productModalDescription = document.querySelector("#product-modal-description");
+const offerList = document.querySelector("#offer-list");
+let lastModalTrigger = null;
+
+const marketplaceInfo = {
+  Amazon: { icon: "shopping-cart", note: "Amazon Brasil" },
+  Shopee: { icon: "shopping-bag", note: "Shopee Brasil" },
+  "Mercado Livre": { icon: "store", note: "Mercado Livre" },
+};
+
+function slugifyForMercadoLivre(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function getProductOffers(product) {
+  const encoded = encodeURIComponent(product.name);
+  const links = product.links || {
+    Amazon: `https://www.amazon.com.br/s?k=${encoded}`,
+    Shopee: `https://shopee.com.br/search?keyword=${encoded}`,
+    "Mercado Livre": `https://lista.mercadolivre.com.br/${slugifyForMercadoLivre(product.name)}`,
+  };
+
+  const prices = product.prices || {};
+
+  return ["Amazon", "Shopee", "Mercado Livre"].map((store) => ({
+    store,
+    url: links[store],
+    price: prices[store] || "Consultar preço",
+    ...marketplaceInfo[store],
+  }));
+}
+
+function openProductModal(product) {
+  if (!productModal) return;
+
+  lastModalTrigger = document.activeElement;
+  productModalTitle.textContent = product.name;
+  productModalDescription.textContent = product.description;
+
+  offerList.innerHTML = getProductOffers(product)
+    .map(
+      (offer) => `
+        <article class="offer-card">
+          <div class="offer-store">
+            <span class="offer-store-icon" aria-hidden="true">
+              <i data-lucide="${offer.icon}"></i>
+            </span>
+            <div>
+              <strong>${offer.store}</strong>
+              <small>${offer.note}</small>
+            </div>
+          </div>
+          <div class="offer-side">
+            <div class="offer-price">
+              <span>Preço</span>
+              <strong>${offer.price}</strong>
+            </div>
+            <a
+              class="offer-button"
+              href="${offer.url}"
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              aria-label="Ver ${product.name} na ${offer.store}"
+            >
+              Ver oferta
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+
+  productModal.classList.add("open");
+  productModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  refreshIcons();
+
+  const closeButton = productModal.querySelector(".product-modal-close");
+  closeButton?.focus();
+}
+
+function closeProductModal() {
+  if (!productModal?.classList.contains("open")) return;
+  productModal.classList.remove("open");
+  productModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  if (lastModalTrigger instanceof HTMLElement) lastModalTrigger.focus();
+}
+
+productModal?.querySelectorAll("[data-close-modal]").forEach((element) => {
+  element.addEventListener("click", closeProductModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeProductModal();
+});
 
 function refreshIcons() {
   if (window.lucide) {
@@ -203,8 +316,14 @@ function renderCategory(categoryValue) {
 
   productGrid.innerHTML = category.products
     .map(
-      (product) => `
-        <article class="product-card">
+      (product, productIndex) => `
+        <article
+          class="product-card"
+          role="button"
+          tabindex="0"
+          data-product-index="${productIndex}"
+          aria-label="Abrir detalhes e comparar preços de ${product.name}"
+        >
           <div class="product-art ${product.artClass}">
             <span>${product.category}</span>
             <i data-lucide="${product.icon}" aria-hidden="true"></i>
@@ -212,25 +331,29 @@ function renderCategory(categoryValue) {
           <div class="product-info">
             <div class="product-meta">
               <span class="market-badge ${product.marketClass}">${product.market}</span>
-              <span>Preço no parceiro</span>
+              <span>Compare preços</span>
             </div>
             <h3 class="product-title">${product.name}</h3>
             <p class="product-description">${product.description}</p>
-            <a
-              class="button product-button"
-              href="${product.url}"
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              aria-label="Encontrar ${product.name} na ${product.market}"
-            >
-              Ver no parceiro
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-            </a>
+            <span class="product-card-action" aria-hidden="true">
+              Ver detalhes e 3 lojas
+              <i data-lucide="chevrons-up" aria-hidden="true"></i>
+            </span>
           </div>
         </article>
       `,
     )
     .join("");
+
+  productGrid.querySelectorAll(".product-card").forEach((card) => {
+    const product = category.products[Number(card.dataset.productIndex)];
+    card.addEventListener("click", () => openProductModal(product));
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openProductModal(product);
+    });
+  });
 
   refreshIcons();
 }

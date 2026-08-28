@@ -232,6 +232,32 @@
       </section>
     </main>
 
+    <div class="product-modal" id="product-modal" aria-hidden="true">
+      <div class="product-modal-backdrop" data-close-modal></div>
+      <section
+        class="product-modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="product-modal-title"
+      >
+        <button class="product-modal-close" type="button" aria-label="Fechar detalhes" data-close-modal>
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+
+        <div class="product-modal-heading">
+          <span class="section-kicker">Comparar lojas</span>
+          <h2 id="product-modal-title"></h2>
+          <p id="product-modal-description"></p>
+        </div>
+
+        <div class="offer-list" id="offer-list"></div>
+
+        <p class="offer-note">
+          Os preços podem mudar a qualquer momento. Confira o valor final, frete e disponibilidade no marketplace antes de comprar.
+        </p>
+      </section>
+    </div>
+
     <footer class="site-footer">
       <div class="site-shell footer-grid">
         <div class="brand footer-brand">
