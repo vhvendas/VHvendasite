@@ -1163,3 +1163,464 @@ svg {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   MOBILE V3 — layout pensado para celular (não é desktop reduzido)
+   ========================================================= */
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-shell {
+    width: 100%;
+    padding-inline: 14px;
+  }
+
+  /* Topo realmente compacto no celular */
+  .announcement-bar {
+    display: none;
+  }
+
+  .site-header {
+    background: rgb(21 26 34 / 97%);
+  }
+
+  .header-inner {
+    min-height: 58px;
+    gap: 10px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px 10px 10px 4px;
+  }
+
+  .brand-mark svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .brand strong {
+    font-size: 0.92rem;
+  }
+
+  .brand small {
+    margin-top: 2px;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .header-button {
+    min-height: 34px;
+    margin-left: auto;
+    padding-inline: 12px;
+    border-radius: 9px;
+    font-size: 0.72rem;
+  }
+
+  /* HERO: vira uma abertura mobile curta, sem bloco de desktop */
+  .hero {
+    padding: 0;
+  }
+
+  .hero-panel {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 22px 16px 20px;
+    border: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 9%);
+    border-radius: 0;
+    background:
+      radial-gradient(circle at 12% 4%, rgb(47 117 255 / 22%), transparent 34%),
+      linear-gradient(180deg, #111827 0%, var(--background) 100%);
+    box-shadow: none;
+  }
+
+  .hero-copy {
+    max-width: 430px;
+    margin-inline: auto;
+  }
+
+  .eyebrow {
+    margin-bottom: 10px;
+    padding: 5px 9px;
+    font-size: 0.62rem;
+  }
+
+  .eyebrow svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .hero h1 {
+    max-width: 360px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    font-size: clamp(1.95rem, 8.5vw, 2.45rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .hero h1 span {
+    font-style: normal;
+  }
+
+  .hero-lead {
+    max-width: 360px;
+    margin-top: 11px;
+    font-size: 0.84rem;
+    line-height: 1.48;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .primary-button {
+    width: auto;
+    min-height: 40px;
+    padding-inline: 15px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+  }
+
+  .hero-actions .text-link,
+  .market-list,
+  .hero-collage,
+  .trust-strip {
+    display: none;
+  }
+
+  /* Catálogo entra logo depois da abertura */
+  .products-section {
+    padding: 26px 0 48px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .section-kicker {
+    margin-bottom: 6px;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+
+  .section-heading h2,
+  .selection-intro h2 {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .section-heading p {
+    display: none;
+  }
+
+  .catalog-tabs {
+    gap: 12px;
+  }
+
+  /* Abas viram chips horizontais, padrão de aplicativo/loja mobile */
+  .catalog-tabs-list {
+    display: flex;
+    width: auto;
+    overflow-x: auto;
+    gap: 8px;
+    margin-inline: -14px;
+    padding: 2px 14px 8px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .catalog-tabs-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .catalog-tab-trigger {
+    flex: 0 0 auto;
+    min-height: 38px;
+    justify-content: center;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 0.72rem;
+    scroll-snap-align: start;
+  }
+
+  .catalog-tab-trigger svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .catalog-tab-trigger.active {
+    border-color: var(--primary);
+    box-shadow: none;
+  }
+
+  /* No celular não repetimos o grande banner da categoria do desktop */
+  .category-intro {
+    display: block;
+    min-height: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .category-image {
+    display: none;
+  }
+
+  .category-copy {
+    display: block;
+    padding: 4px 0 2px;
+  }
+
+  .category-copy > span {
+    margin-bottom: 4px;
+    font-size: 0.56rem;
+  }
+
+  .category-copy h3 {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .category-copy p {
+    display: none;
+  }
+
+  .mobile-swipe-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0 9px;
+    color: #8e99a8;
+    font-size: 0.66rem;
+    font-weight: 700;
+  }
+
+  .mobile-swipe-hint svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Produtos: carrossel nativo com o próximo card aparecendo na lateral */
+  .product-grid {
+    display: flex;
+    width: auto;
+    overflow-x: auto;
+    gap: 11px;
+    margin: 0 -14px;
+    padding: 2px 14px 14px;
+    scroll-padding-inline: 14px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-card {
+    flex: 0 0 min(74vw, 278px);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 14%);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  .product-art {
+    min-height: 126px;
+    padding: 16px;
+  }
+
+  .product-art > span {
+    font-size: 0.62rem;
+  }
+
+  .product-art > svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .product-info {
+    padding: 15px;
+  }
+
+  .product-meta {
+    gap: 6px;
+  }
+
+  .market-badge {
+    padding: 3px 7px;
+    font-size: 0.57rem;
+  }
+
+  .product-meta > span {
+    font-size: 0.56rem;
+  }
+
+  .product-title {
+    margin-top: 10px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: 780;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+  }
+
+  .product-description {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 8px 0 13px;
+    font-size: 0.74rem;
+    line-height: 1.45;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .product-button {
+    min-height: 40px;
+    border-radius: 9px;
+    font-size: 0.74rem;
+  }
+
+  .product-button svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* Seções institucionais permanecem, mas com desenho próprio para tela pequena */
+  .selection-section {
+    padding: 40px 0;
+  }
+
+  .selection-grid {
+    display: block;
+  }
+
+  .selection-intro {
+    margin-bottom: 20px;
+  }
+
+  .selection-intro > p {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .reason-item {
+    grid-template-columns: 28px 38px 1fr;
+    gap: 9px;
+    padding: 17px 0;
+  }
+
+  .reason-number {
+    font-size: 0.8rem;
+  }
+
+  .reason-icon {
+    grid-column: auto;
+    grid-row: auto;
+    width: 34px;
+    height: 34px;
+  }
+
+  .reason-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .reason-item > div {
+    grid-column: auto;
+  }
+
+  .reason-item h3 {
+    font-size: 0.88rem;
+  }
+
+  .reason-item p {
+    margin-top: 5px;
+    font-size: 0.73rem;
+    line-height: 1.5;
+  }
+
+  .closing-section {
+    padding: 34px 0;
+  }
+
+  .closing-card {
+    gap: 20px;
+    padding: 22px 18px;
+    border-radius: 15px;
+  }
+
+  .closing-card h2 {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .closing-button {
+    min-height: 42px;
+    font-size: 0.78rem;
+  }
+
+  .site-footer {
+    padding: 34px 0;
+  }
+
+  .footer-grid {
+    gap: 18px;
+  }
+
+  .affiliate-note {
+    font-size: 0.66rem;
+    line-height: 1.55;
+  }
+
+  .footer-mark {
+    font-size: 0.68rem;
+  }
+}
