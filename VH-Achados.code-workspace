@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "VH Achados",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1200
+  },
+  "extensions": {
+    "recommendations": ["ritwickdey.liveserver"]
+  }
+}
+

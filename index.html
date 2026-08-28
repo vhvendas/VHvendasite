@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Seleção de eletrônicos, moda masculina e móveis decorativos encontrados na Amazon, Shopee e Mercado Livre."
+    />
+    <title>VH Achados</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="announcement-bar">
+      <div class="site-shell announcement-inner">
+        <span><i data-lucide="sparkles" aria-hidden="true"></i> Achados em destaque</span>
+        <span>Amazon · Shopee · Mercado Livre</span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-shell header-inner">
+        <a class="brand" href="#inicio" aria-label="VH Achados - início">
+          <span class="brand-mark" aria-hidden="true">
+            <i data-lucide="shopping-bag"></i>
+          </span>
+          <span>
+            <strong>VH</strong>
+            <small>Achados</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="#catalogo">Categorias</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#sobre">Sobre</a>
+        </nav>
+
+        <a class="button header-button" href="#catalogo">
+          Ver produtos <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="site-shell hero-panel">
+          <div class="hero-copy">
+            <span class="eyebrow">
+              <i data-lucide="tag" aria-hidden="true"></i>
+              Seu catálogo de achados
+            </span>
+            <h1>Tudo que vale o clique,<span> em um só lugar.</span></h1>
+            <p class="hero-lead">
+              Eletrônicos, moda masculina e móveis decorativos selecionados na
+              Amazon, Shopee e Mercado Livre.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary-button" href="#catalogo">
+                Explorar categorias
+                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+              <a class="text-link" href="#como-funciona">Como funciona</a>
+            </div>
+
+            <div class="market-list" aria-label="Marketplaces pesquisados">
+              <span>Amazon</span>
+              <span>Shopee</span>
+              <span>Mercado Livre</span>
+            </div>
+          </div>
+
+          <div class="hero-collage" aria-label="Categorias em destaque">
+            <a class="hero-tile hero-tile-main" href="#catalogo" data-category="eletronicos">
+              <img
+                src="https://images.unsplash.com/photo-1742753103280-52d5efc0709b?auto=format&fit=crop&q=82&w=1400"
+                alt="Eletrônicos e acessórios organizados sobre uma mesa"
+              />
+              <span>Eletrônicos</span>
+            </a>
+            <a class="hero-tile" href="#catalogo" data-category="moda-masculina">
+              <img
+                src="https://images.unsplash.com/photo-1761896902115-49793a359daf?auto=format&fit=crop&q=82&w=1400"
+                alt="Camisa e acessórios masculinos organizados"
+              />
+              <span>Moda masculina</span>
+            </a>
+            <a class="hero-tile" href="#catalogo" data-category="moveis-decorativos">
+              <img
+                src="https://images.unsplash.com/photo-1771888703723-01d85da1dae1?auto=format&fit=crop&q=82&w=1400"
+                alt="Sala moderna com móveis e objetos decorativos"
+              />
+              <span>Móveis decorativos</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="site-shell trust-strip" aria-label="Vantagens da página">
+          <span><i data-lucide="sparkles" aria-hidden="true"></i> Categorias organizadas</span>
+          <span><i data-lucide="search" aria-hidden="true"></i> Links organizados</span>
+          <span><i data-lucide="truck" aria-hidden="true"></i> Compra no marketplace</span>
+        </div>
+      </section>
+
+      <section class="products-section" id="catalogo">
+        <div class="site-shell">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">Catálogo VH Achados</span>
+              <h2>Escolha uma categoria</h2>
+            </div>
+            <p>
+              Troque de aba para encontrar produtos diferentes. O preço e a
+              disponibilidade são conferidos diretamente no parceiro.
+            </p>
+          </div>
+
+          <div class="catalog-tabs">
+            <div class="catalog-tabs-list" role="tablist" aria-label="Categorias de produtos">
+              <button
+                class="catalog-tab-trigger active"
+                id="tab-eletronicos"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="catalog-content"
+                data-tab="eletronicos"
+              >
+                <i data-lucide="smartphone" aria-hidden="true"></i> Eletrônicos
+              </button>
+              <button
+                class="catalog-tab-trigger"
+                id="tab-moda-masculina"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="catalog-content"
+                tabindex="-1"
+                data-tab="moda-masculina"
+              >
+                <i data-lucide="shirt" aria-hidden="true"></i> Moda masculina
+              </button>
+              <button
+                class="catalog-tab-trigger"
+                id="tab-moveis-decorativos"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="catalog-content"
+                tabindex="-1"
+                data-tab="moveis-decorativos"
+              >
+                <i data-lucide="house" aria-hidden="true"></i> Móveis decorativos
+              </button>
+            </div>
+
+            <div
+              class="catalog-tab-content"
+              id="catalog-content"
+              role="tabpanel"
+              aria-live="polite"
+              aria-labelledby="tab-eletronicos"
+            >
+              <div class="category-intro" id="category-intro"></div>
+              <div class="mobile-swipe-hint" aria-hidden="true">
+                <i data-lucide="move-horizontal"></i>
+                Arraste para o lado para ver mais produtos
+              </div>
+              <div class="product-grid" id="product-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="selection-section" id="como-funciona">
+        <div class="site-shell selection-grid">
+          <div class="selection-intro">
+            <span class="section-kicker">Simples e transparente</span>
+            <h2>O caminho curto até uma boa escolha.</h2>
+            <p>
+              O VH Achados funciona como uma vitrine de recomendações. Você
+              encontra o produto aqui e finaliza a compra com segurança no site
+              oficial do marketplace.
+            </p>
+          </div>
+
+          <div class="reason-list">
+            <article class="reason-item">
+              <span class="reason-number">01</span>
+              <span class="reason-icon" aria-hidden="true"><i data-lucide="search"></i></span>
+              <div>
+                <h3>Categorias organizadas</h3>
+                <p>Encontre rapidamente o tipo de produto que procura sem navegar por uma lista confusa.</p>
+              </div>
+            </article>
+            <article class="reason-item">
+              <span class="reason-number">02</span>
+              <span class="reason-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+              <div>
+                <h3>Compra no parceiro</h3>
+                <p>Preço, prazo, avaliações e pagamento são conferidos diretamente no marketplace escolhido.</p>
+              </div>
+            </article>
+            <article class="reason-item">
+              <span class="reason-number">03</span>
+              <span class="reason-icon" aria-hidden="true"><i data-lucide="heart"></i></span>
+              <div>
+                <h3>Seleção mais enxuta</h3>
+                <p>A vitrine destaca produtos úteis e evita mostrar dezenas de opções iguais para você.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section" id="sobre">
+        <div class="site-shell closing-card">
+          <div>
+            <span class="section-kicker">Seu estilo, sua escolha</span>
+            <h2>Encontre seu próximo achado sem perder tempo.</h2>
+          </div>
+          <a class="button closing-button" href="#catalogo">
+            Voltar às categorias
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-grid">
+        <div class="brand footer-brand">
+          <span class="brand-mark" aria-hidden="true"><i data-lucide="shopping-bag"></i></span>
+          <span><strong>VH</strong><small>Achados</small></span>
+        </div>
+        <p class="affiliate-note">
+          Transparência: alguns links desta página podem ser links de afiliado.
+          Isso significa que podemos receber uma comissão por compras
+          qualificadas, sem custo adicional para você. Preços, avaliações e
+          disponibilidade são definidos pelos marketplaces e podem mudar.
+        </p>
+        <div class="footer-mark">
+          <i data-lucide="circle-check" aria-hidden="true"></i>
+          <span>Confira os detalhes antes de comprar.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
