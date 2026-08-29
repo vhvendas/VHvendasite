@@ -95,3 +95,14 @@ prices: {
 ```
 
 Na mesma parte, substitua os links de busca pelos seus links de afiliado em `links`.
+
+
+## Novidade da V6 — modelos dentro de Fone Bluetooth
+
+Agora o fluxo funciona em 3 etapas:
+
+1. O visitante toca em **Fone Bluetooth**.
+2. Aparece uma lista de modelos de fone.
+3. Ao tocar em um modelo, aparecem a descrição e as ofertas na **Amazon, Shopee e Mercado Livre**.
+
+Os modelos ficam no arquivo `script.js`, dentro de `models:`. Para trocar nomes, descrições, preços ou links, edite os dados de cada modelo. Quando um modelo não tiver links próprios, o site cria automaticamente uma busca pelo nome dele nas três plataformas.

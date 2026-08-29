@@ -24,16 +24,52 @@ const categories = [
         marketClass: "market-amazon",
         icon: "headphones",
         artClass: "art-sage",
-        prices: {
-          Amazon: "Consultar preço",
-          Shopee: "Consultar preço",
-          "Mercado Livre": "Consultar preço",
-        },
-        links: {
-          Amazon: "https://www.amazon.com.br/s?k=fone+bluetooth",
-          Shopee: "https://shopee.com.br/search?keyword=fone%20bluetooth",
-          "Mercado Livre": "https://lista.mercadolivre.com.br/fone-bluetooth",
-        },
+        models: [
+          {
+            name: "JBL Tune 520BT",
+            description: "Headphone Bluetooth para quem prefere um modelo de arco, confortável para música, vídeos e uso no dia a dia.",
+            type: "Headphone",
+            icon: "headphones",
+            prices: {
+              Amazon: "Consultar preço",
+              Shopee: "Consultar preço",
+              "Mercado Livre": "Consultar preço",
+            },
+          },
+          {
+            name: "QCY T13",
+            description: "Fone Bluetooth TWS compacto, indicado para quem quer praticidade e um estojo fácil de carregar no bolso.",
+            type: "TWS",
+            icon: "ear",
+            prices: {
+              Amazon: "Consultar preço",
+              Shopee: "Consultar preço",
+              "Mercado Livre": "Consultar preço",
+            },
+          },
+          {
+            name: "Edifier W600BT",
+            description: "Headphone Bluetooth de visual discreto para ouvir música, estudar, trabalhar ou assistir a conteúdos.",
+            type: "Headphone",
+            icon: "headphones",
+            prices: {
+              Amazon: "Consultar preço",
+              Shopee: "Consultar preço",
+              "Mercado Livre": "Consultar preço",
+            },
+          },
+          {
+            name: "Lenovo LP40 Pro",
+            description: "Fone Bluetooth intra-auricular com estojo compacto, pensado para uso casual e mobilidade durante a rotina.",
+            type: "Intra-auricular",
+            icon: "bluetooth",
+            prices: {
+              Amazon: "Consultar preço",
+              Shopee: "Consultar preço",
+              "Mercado Livre": "Consultar preço",
+            },
+          },
+        ],
       },
       {
         name: "Smartwatch inteligente",
@@ -180,8 +216,12 @@ const catalogContent = document.querySelector("#catalog-content");
 const productModal = document.querySelector("#product-modal");
 const productModalTitle = document.querySelector("#product-modal-title");
 const productModalDescription = document.querySelector("#product-modal-description");
+const productModalKicker = document.querySelector("#product-modal-kicker");
+const productModalBack = document.querySelector("#product-modal-back");
+const modelList = document.querySelector("#model-list");
 const offerList = document.querySelector("#offer-list");
 let lastModalTrigger = null;
+let currentModelParent = null;
 
 const marketplaceInfo = {
   Amazon: { icon: "shopping-cart", note: "Amazon Brasil" },
@@ -216,13 +256,7 @@ function getProductOffers(product) {
   }));
 }
 
-function openProductModal(product) {
-  if (!productModal) return;
-
-  lastModalTrigger = document.activeElement;
-  productModalTitle.textContent = product.name;
-  productModalDescription.textContent = product.description;
-
+function renderOffers(product) {
   offerList.innerHTML = getProductOffers(product)
     .map(
       (offer) => `
@@ -256,6 +290,84 @@ function openProductModal(product) {
       `,
     )
     .join("");
+}
+
+function showModelSelector(product) {
+  currentModelParent = product;
+  productModalKicker.textContent = "Escolha um modelo";
+  productModalTitle.textContent = product.name;
+  productModalDescription.textContent =
+    "Toque em um modelo para ver a descrição e comparar o produto nas 3 plataformas.";
+
+  productModalBack.hidden = true;
+  offerList.hidden = true;
+  modelList.hidden = false;
+
+  modelList.innerHTML = product.models
+    .map(
+      (model, index) => `
+        <button class="model-card" type="button" data-model-index="${index}">
+          <span class="model-icon" aria-hidden="true">
+            <i data-lucide="${model.icon || "headphones"}"></i>
+          </span>
+          <span class="model-copy">
+            <span class="model-type">${model.type || "Modelo"}</span>
+            <strong>${model.name}</strong>
+            <small>${model.description}</small>
+          </span>
+          <span class="model-action">
+            3 lojas
+            <i data-lucide="chevron-right" aria-hidden="true"></i>
+          </span>
+        </button>
+      `,
+    )
+    .join("");
+
+  modelList.querySelectorAll("[data-model-index]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const model = product.models[Number(button.dataset.modelIndex)];
+      showModelOffers(product, model);
+    });
+  });
+
+  refreshIcons();
+}
+
+function showModelOffers(parentProduct, model) {
+  currentModelParent = parentProduct;
+  productModalKicker.textContent = "Comparar em 3 lojas";
+  productModalTitle.textContent = model.name;
+  productModalDescription.textContent = model.description;
+
+  modelList.hidden = true;
+  offerList.hidden = false;
+  productModalBack.hidden = false;
+  renderOffers(model);
+  refreshIcons();
+}
+
+function showSingleProductOffers(product) {
+  currentModelParent = null;
+  productModalKicker.textContent = "Comparar lojas";
+  productModalTitle.textContent = product.name;
+  productModalDescription.textContent = product.description;
+  productModalBack.hidden = true;
+  modelList.hidden = true;
+  offerList.hidden = false;
+  renderOffers(product);
+}
+
+function openProductModal(product) {
+  if (!productModal) return;
+
+  lastModalTrigger = document.activeElement;
+
+  if (Array.isArray(product.models) && product.models.length) {
+    showModelSelector(product);
+  } else {
+    showSingleProductOffers(product);
+  }
 
   productModal.classList.add("open");
   productModal.setAttribute("aria-hidden", "false");
@@ -276,6 +388,10 @@ function closeProductModal() {
 
 productModal?.querySelectorAll("[data-close-modal]").forEach((element) => {
   element.addEventListener("click", closeProductModal);
+});
+
+productModalBack?.addEventListener("click", () => {
+  if (currentModelParent) showModelSelector(currentModelParent);
 });
 
 document.addEventListener("keydown", (event) => {
@@ -336,8 +452,8 @@ function renderCategory(categoryValue) {
             <h3 class="product-title">${product.name}</h3>
             <p class="product-description">${product.description}</p>
             <span class="product-card-action" aria-hidden="true">
-              Ver detalhes e 3 lojas
-              <i data-lucide="chevrons-up" aria-hidden="true"></i>
+              ${Array.isArray(product.models) && product.models.length ? "Ver modelos de fones" : "Ver detalhes e 3 lojas"}
+              <i data-lucide="${Array.isArray(product.models) && product.models.length ? "chevron-right" : "chevrons-up"}" aria-hidden="true"></i>
             </span>
           </div>
         </article>
