@@ -53,3 +53,14 @@ links: {
 ```
 
 Se `prices` não estiver preenchido, o site mostra `Consultar preço`. Se `links` não estiver preenchido, o site abre uma busca do produto no marketplace.
+
+
+## V8 — primeiro link de afiliado real
+
+O modelo **JBL Tune 520BT** agora possui:
+- link de afiliado da Shopee: https://s.shopee.com.br/1LfMHOG2jp
+- preço de referência da Shopee: R$ 206,37 no Pix (consultado em 29/08/2026)
+- imagem oficial do modelo (JBL)
+- especificações resumidas (Pure Bass, Bluetooth 5.3, até 57h, carga rápida e multiponto)
+
+Amazon e Mercado Livre continuam usando busca comum até serem fornecidos os respectivos links de afiliado.

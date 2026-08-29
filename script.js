@@ -27,9 +27,26 @@ const categories = [
         models: [
           {
             name: "JBL Tune 520BT",
-            description: "Headphone Bluetooth de arco, confortável para música, vídeos e uso no dia a dia.",
+            description: "Headphone Bluetooth on-ear com JBL Pure Bass, Bluetooth 5.3, até 57 horas de bateria e carregamento rápido.",
             type: "Headphone",
             icon: "headphones",
+            image: "https://www.jbl.com.br/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc23d813b/01.JBL_Tune_520BT_ProductImage_Hero_Black.png?sh=800&sw=800",
+            imageAlt: "Headphone JBL Tune 520BT preto",
+            features: [
+              "Som JBL Pure Bass",
+              "Bluetooth 5.3",
+              "Até 57 horas de bateria",
+              "Carga rápida: 5 minutos rendem até 3 horas",
+              "Conexão multiponto e chamadas viva-voz",
+              "Design leve e dobrável",
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/1LfMHOG2jp",
+            },
+            prices: {
+              Shopee: "R$ 206,37 no Pix",
+            },
+            priceChecked: "29/08/2026",
           },
           {
             name: "QCY T13",
@@ -475,6 +492,10 @@ const productModalKicker = document.querySelector("#product-modal-kicker");
 const productModalBack = document.querySelector("#product-modal-back");
 const modelList = document.querySelector("#model-list");
 const offerList = document.querySelector("#offer-list");
+const productModalMedia = document.querySelector("#product-modal-media");
+const productModalImage = document.querySelector("#product-modal-image");
+const productModalFeatures = document.querySelector("#product-modal-features");
+const offerUpdate = document.querySelector("#offer-update");
 let lastModalTrigger = null;
 let currentModelParent = null;
 
@@ -495,11 +516,12 @@ function slugifyForMercadoLivre(text) {
 
 function getProductOffers(product) {
   const encoded = encodeURIComponent(product.name);
-  const links = product.links || {
+  const defaultLinks = {
     Amazon: `https://www.amazon.com.br/s?k=${encoded}`,
     Shopee: `https://shopee.com.br/search?keyword=${encoded}`,
     "Mercado Livre": `https://lista.mercadolivre.com.br/${slugifyForMercadoLivre(product.name)}`,
   };
+  const links = { ...defaultLinks, ...(product.links || {}) };
 
   const prices = product.prices || {};
 
@@ -547,6 +569,47 @@ function renderOffers(product) {
     .join("");
 }
 
+function renderProductMedia(product) {
+  const hasImage = Boolean(product.image);
+  const hasFeatures = Array.isArray(product.features) && product.features.length > 0;
+
+  if (!productModalMedia || (!hasImage && !hasFeatures)) {
+    if (productModalMedia) productModalMedia.hidden = true;
+    return;
+  }
+
+  productModalMedia.hidden = false;
+
+  if (productModalImage) {
+    if (hasImage) {
+      productModalImage.src = product.image;
+      productModalImage.alt = product.imageAlt || product.name;
+      productModalImage.hidden = false;
+    } else {
+      productModalImage.hidden = true;
+      productModalImage.removeAttribute("src");
+    }
+  }
+
+  if (productModalFeatures) {
+    productModalFeatures.innerHTML = hasFeatures
+      ? product.features.map((feature) => `<li><i data-lucide="check" aria-hidden="true"></i><span>${feature}</span></li>`).join("")
+      : "";
+    productModalFeatures.hidden = !hasFeatures;
+  }
+}
+
+function renderPriceUpdate(product) {
+  if (!offerUpdate) return;
+  if (product.priceChecked) {
+    offerUpdate.hidden = false;
+    offerUpdate.textContent = `Preço da Shopee consultado em ${product.priceChecked}. O marketplace pode alterar o valor a qualquer momento.`;
+  } else {
+    offerUpdate.hidden = true;
+    offerUpdate.textContent = "";
+  }
+}
+
 function showModelSelector(product) {
   currentModelParent = product;
   productModalKicker.textContent = "Escolha uma opção";
@@ -557,14 +620,16 @@ function showModelSelector(product) {
   productModalBack.hidden = true;
   offerList.hidden = true;
   modelList.hidden = false;
+  if (productModalMedia) productModalMedia.hidden = true;
+  if (offerUpdate) offerUpdate.hidden = true;
 
   modelList.innerHTML = product.models
     .map(
       (model, index) => `
         <button class="model-card" type="button" data-model-index="${index}">
-          <span class="model-icon" aria-hidden="true">
-            <i data-lucide="${model.icon || "headphones"}"></i>
-          </span>
+          ${model.image
+            ? `<span class="model-thumb"><img src="${model.image}" alt="" loading="lazy" /></span>`
+            : `<span class="model-icon" aria-hidden="true"><i data-lucide="${model.icon || "headphones"}"></i></span>`}
           <span class="model-copy">
             <span class="model-type">${model.type || "Modelo"}</span>
             <strong>${model.name}</strong>
@@ -598,7 +663,9 @@ function showModelOffers(parentProduct, model) {
   modelList.hidden = true;
   offerList.hidden = false;
   productModalBack.hidden = false;
+  renderProductMedia(model);
   renderOffers(model);
+  renderPriceUpdate(model);
   refreshIcons();
 }
 
@@ -610,7 +677,9 @@ function showSingleProductOffers(product) {
   productModalBack.hidden = true;
   modelList.hidden = true;
   offerList.hidden = false;
+  renderProductMedia(product);
   renderOffers(product);
+  renderPriceUpdate(product);
 }
 
 function openProductModal(product) {
