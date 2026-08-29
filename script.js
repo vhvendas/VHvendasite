@@ -40,11 +40,14 @@ const categories = [
               "Conexão multiponto e chamadas viva-voz",
               "Design leve e dobrável",
             ],
+            mercadoLivreId: "PY7V4L-KC5F",
             links: {
               Shopee: "https://s.shopee.com.br/1LfMHOG2jp",
+              "Mercado Livre": "https://meli.la/2q1iGFg",
             },
             prices: {
               Shopee: "R$ 206,37 no Pix",
+              "Mercado Livre": "Consultar preço",
             },
             priceChecked: "29/08/2026",
           },
