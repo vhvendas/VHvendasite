@@ -18,88 +18,143 @@ const categories = [
     products: [
       {
         name: "Fone Bluetooth",
-        description: "Opção sem fio para música, chamadas e uso durante a rotina.",
+        description: "Escolha entre diferentes modelos sem fio para música, chamadas e rotina.",
         category: "Áudio",
-        market: "3 lojas",
+        market: "4 modelos",
         marketClass: "market-amazon",
         icon: "headphones",
         artClass: "art-sage",
         models: [
           {
             name: "JBL Tune 520BT",
-            description: "Headphone Bluetooth para quem prefere um modelo de arco, confortável para música, vídeos e uso no dia a dia.",
+            description: "Headphone Bluetooth de arco, confortável para música, vídeos e uso no dia a dia.",
             type: "Headphone",
             icon: "headphones",
-            prices: {
-              Amazon: "Consultar preço",
-              Shopee: "Consultar preço",
-              "Mercado Livre": "Consultar preço",
-            },
           },
           {
             name: "QCY T13",
-            description: "Fone Bluetooth TWS compacto, indicado para quem quer praticidade e um estojo fácil de carregar no bolso.",
+            description: "Fone Bluetooth TWS compacto com estojo, indicado para praticidade e mobilidade.",
             type: "TWS",
             icon: "ear",
-            prices: {
-              Amazon: "Consultar preço",
-              Shopee: "Consultar preço",
-              "Mercado Livre": "Consultar preço",
-            },
           },
           {
             name: "Edifier W600BT",
-            description: "Headphone Bluetooth de visual discreto para ouvir música, estudar, trabalhar ou assistir a conteúdos.",
+            description: "Headphone Bluetooth de visual discreto para música, estudo, trabalho e vídeos.",
             type: "Headphone",
             icon: "headphones",
-            prices: {
-              Amazon: "Consultar preço",
-              Shopee: "Consultar preço",
-              "Mercado Livre": "Consultar preço",
-            },
           },
           {
             name: "Lenovo LP40 Pro",
-            description: "Fone Bluetooth intra-auricular com estojo compacto, pensado para uso casual e mobilidade durante a rotina.",
+            description: "Fone intra-auricular Bluetooth com estojo compacto para uso casual durante a rotina.",
             type: "Intra-auricular",
             icon: "bluetooth",
-            prices: {
-              Amazon: "Consultar preço",
-              Shopee: "Consultar preço",
-              "Mercado Livre": "Consultar preço",
-            },
           },
         ],
       },
       {
         name: "Smartwatch inteligente",
-        description: "Acompanhe notificações e recursos do dia a dia direto no pulso.",
+        description: "Escolha um relógio inteligente para notificações, exercícios e recursos do dia a dia.",
         category: "Wearable",
-        market: "Shopee",
+        market: "4 modelos",
         marketClass: "market-shopee",
         icon: "watch",
         artClass: "art-coral",
-        url: "https://shopee.com.br/search?keyword=smartwatch",
+        models: [
+          {
+            name: "Redmi Watch 5 Active",
+            description: "Smartwatch com tela ampla e recursos para acompanhar rotina, notificações e atividades físicas.",
+            type: "Smartwatch",
+            icon: "watch",
+          },
+          {
+            name: "Amazfit Bip 5",
+            description: "Relógio inteligente com foco em atividades, acompanhamento diário e visual leve para uso contínuo.",
+            type: "Smartwatch",
+            icon: "watch",
+          },
+          {
+            name: "Haylou Solar Plus RT3",
+            description: "Smartwatch com visual redondo e funções voltadas a notificações, treino e monitoramento cotidiano.",
+            type: "Smartwatch",
+            icon: "watch",
+          },
+          {
+            name: "Huawei Band 9",
+            description: "Pulseira inteligente fina e leve, indicada para acompanhar exercícios, sono e notificações.",
+            type: "Smartband",
+            icon: "activity",
+          },
+        ],
       },
       {
         name: "Mini projetor portátil",
-        description: "Uma alternativa compacta para vídeos, jogos e apresentações.",
+        description: "Escolha entre opções compactas para vídeos, jogos e apresentações.",
         category: "Imagem",
-        market: "Mercado Livre",
+        market: "4 modelos",
         marketClass: "market-mercado-livre",
         icon: "monitor",
         artClass: "art-sun",
-        url: "https://lista.mercadolivre.com.br/mini-projetor-portatil",
+        models: [
+          {
+            name: "HY300 Pro",
+            description: "Mini projetor compacto com sistema inteligente, indicado para filmes, séries e uso casual em casa.",
+            type: "Projetor compacto",
+            icon: "projector",
+          },
+          {
+            name: "HY320 Mini",
+            description: "Projetor portátil para quem busca uma imagem maior em quartos, salas e pequenos ambientes.",
+            type: "Projetor portátil",
+            icon: "projector",
+          },
+          {
+            name: "Mini Projetor Android 11",
+            description: "Opção compacta com sistema Android para acessar aplicativos e reproduzir conteúdos em uma tela maior.",
+            type: "Smart projetor",
+            icon: "monitor-play",
+          },
+          {
+            name: "Projetor Portátil Wi‑Fi 6",
+            description: "Modelo voltado a conexão sem fio e reprodução de vídeos, apresentações e entretenimento doméstico.",
+            type: "Projetor Wi‑Fi",
+            icon: "wifi",
+          },
+        ],
       },
       {
         name: "Carregador portátil",
-        description: "Energia extra para o celular quando você estiver fora de casa.",
+        description: "Escolha uma bateria externa para ter energia extra fora de casa.",
         category: "Energia",
-        market: "Amazon",
+        market: "4 modelos",
         marketClass: "market-amazon",
         icon: "battery-charging",
         artClass: "art-blue",
-        url: "https://www.amazon.com.br/s?k=carregador+portatil",
+        models: [
+          {
+            name: "Baseus Bipow 10.000mAh 20W",
+            description: "Power bank compacto de 10.000mAh para recargas no dia a dia, com potência de até 20W.",
+            type: "10.000mAh",
+            icon: "battery-charging",
+          },
+          {
+            name: "Geonav Power Bank 10.000mAh",
+            description: "Bateria portátil para levar na mochila e manter celular e acessórios carregados durante a rotina.",
+            type: "10.000mAh",
+            icon: "battery-full",
+          },
+          {
+            name: "Xiaomi Power Bank 10.000mAh",
+            description: "Carregador portátil compacto para recargas de emergência e uso em viagens ou deslocamentos.",
+            type: "10.000mAh",
+            icon: "battery-medium",
+          },
+          {
+            name: "Pineng PN-951 10.000mAh",
+            description: "Power bank com capacidade para recargas ao longo do dia e formato pensado para transporte.",
+            type: "10.000mAh",
+            icon: "battery-charging",
+          },
+        ],
       },
     ],
   },
@@ -115,43 +170,143 @@ const categories = [
     products: [
       {
         name: "Camiseta masculina premium",
-        description: "Modelo versátil para compor looks casuais com facilidade.",
+        description: "Escolha o estilo de camiseta que combina melhor com seu visual.",
         category: "Vestuário",
-        market: "Shopee",
+        market: "4 modelos",
         marketClass: "market-shopee",
         icon: "shirt",
         artClass: "art-sage",
-        url: "https://shopee.com.br/search?keyword=camiseta%20masculina%20premium",
+        models: [
+          {
+            name: "Camiseta Algodão Premium",
+            description: "Modelo básico em algodão para montar looks casuais, confortáveis e fáceis de combinar.",
+            type: "Básica",
+            icon: "shirt",
+          },
+          {
+            name: "Camiseta Oversized Premium",
+            description: "Modelagem mais ampla e moderna para quem prefere um visual urbano e descontraído.",
+            type: "Oversized",
+            icon: "shirt",
+          },
+          {
+            name: "Camiseta Slim Fit Premium",
+            description: "Modelagem mais ajustada ao corpo para um visual casual com aparência mais alinhada.",
+            type: "Slim fit",
+            icon: "shirt",
+          },
+          {
+            name: "Camiseta Dry Fit Masculina",
+            description: "Opção leve para treinos, caminhadas e atividades em dias quentes.",
+            type: "Esportiva",
+            icon: "shirt",
+          },
+        ],
       },
       {
         name: "Tênis casual masculino",
-        description: "Uma escolha prática para diferentes combinações e ocasiões.",
+        description: "Escolha entre estilos de tênis para diferentes combinações e ocasiões.",
         category: "Calçados",
-        market: "Mercado Livre",
+        market: "4 modelos",
         marketClass: "market-mercado-livre",
         icon: "footprints",
         artClass: "art-coral",
-        url: "https://lista.mercadolivre.com.br/tenis-casual-masculino",
+        models: [
+          {
+            name: "Tênis Casual Branco Masculino",
+            description: "Modelo branco versátil para combinar com jeans, bermudas e looks casuais.",
+            type: "Casual",
+            icon: "footprints",
+          },
+          {
+            name: "Tênis Knit Leve Masculino",
+            description: "Tênis com cabedal em tecido para quem busca leveza e conforto no uso diário.",
+            type: "Knit",
+            icon: "footprints",
+          },
+          {
+            name: "Sapatênis Masculino Casual",
+            description: "Opção intermediária entre tênis e sapato para looks casuais mais arrumados.",
+            type: "Sapatênis",
+            icon: "footprints",
+          },
+          {
+            name: "Tênis Slip On Masculino",
+            description: "Modelo sem cadarço, prático para calçar e usar em compromissos do dia a dia.",
+            type: "Slip on",
+            icon: "footprints",
+          },
+        ],
       },
       {
         name: "Relógio masculino",
-        description: "Acessório clássico para deixar o visual mais completo.",
+        description: "Escolha um estilo de relógio para completar o visual.",
         category: "Acessórios",
-        market: "Amazon",
+        market: "4 modelos",
         marketClass: "market-amazon",
         icon: "clock",
         artClass: "art-sun",
-        url: "https://www.amazon.com.br/s?k=relogio+masculino",
+        models: [
+          {
+            name: "Relógio Social Aço Masculino",
+            description: "Relógio com pulseira metálica para looks sociais, trabalho e ocasiões mais formais.",
+            type: "Social",
+            icon: "clock-3",
+          },
+          {
+            name: "Relógio Couro Minimalista",
+            description: "Modelo de visual limpo com pulseira de couro para combinações discretas e elegantes.",
+            type: "Minimalista",
+            icon: "clock",
+          },
+          {
+            name: "Relógio Esportivo Digital",
+            description: "Opção digital para uso casual, atividades e uma aparência mais esportiva.",
+            type: "Esportivo",
+            icon: "timer",
+          },
+          {
+            name: "Relógio Analógico Casual",
+            description: "Modelo analógico versátil para usar no cotidiano com diferentes tipos de roupa.",
+            type: "Casual",
+            icon: "watch",
+          },
+        ],
       },
       {
         name: "Carteira slim",
-        description: "Formato compacto para carregar documentos e cartões essenciais.",
+        description: "Escolha uma carteira compacta para cartões, documentos e dinheiro.",
         category: "Praticidade",
-        market: "Shopee",
+        market: "4 modelos",
         marketClass: "market-shopee",
         icon: "wallet",
         artClass: "art-blue",
-        url: "https://shopee.com.br/search?keyword=carteira%20slim%20masculina",
+        models: [
+          {
+            name: "Carteira Slim de Couro",
+            description: "Carteira fina para levar cartões, documentos e notas sem criar muito volume no bolso.",
+            type: "Couro",
+            icon: "wallet-cards",
+          },
+          {
+            name: "Porta-Cartões Slim RFID",
+            description: "Modelo compacto voltado principalmente a cartões, com proposta de proteção RFID.",
+            type: "Porta-cartões",
+            icon: "credit-card",
+          },
+          {
+            name: "Carteira Slim Vertical",
+            description: "Formato vertical e compacto para organizar os itens essenciais do dia a dia.",
+            type: "Vertical",
+            icon: "wallet",
+          },
+          {
+            name: "Carteira Slim de Alumínio",
+            description: "Porta-cartões rígido e minimalista para quem quer reduzir o volume no bolso.",
+            type: "Rígida",
+            icon: "badge-dollar-sign",
+          },
+        ],
       },
     ],
   },
@@ -167,43 +322,143 @@ const categories = [
     products: [
       {
         name: "Luminária de mesa",
-        description: "Iluminação de apoio que também funciona como elemento decorativo.",
+        description: "Escolha uma luminária para iluminação de apoio e decoração.",
         category: "Iluminação",
-        market: "Mercado Livre",
+        market: "4 modelos",
         marketClass: "market-mercado-livre",
         icon: "lamp",
         artClass: "art-sage",
-        url: "https://lista.mercadolivre.com.br/luminaria-de-mesa-decorativa",
+        models: [
+          {
+            name: "Luminária Touch LED",
+            description: "Luminária compacta com acionamento por toque, prática para mesa de cabeceira ou escrivaninha.",
+            type: "Touch",
+            icon: "lamp-desk",
+          },
+          {
+            name: "Luminária Cogumelo Decorativa",
+            description: "Modelo de formato arredondado que funciona como iluminação suave e peça de decoração.",
+            type: "Decorativa",
+            icon: "lamp",
+          },
+          {
+            name: "Luminária Articulada de Mesa",
+            description: "Opção com haste ajustável para direcionar a luz em estudos, leitura e trabalho.",
+            type: "Articulada",
+            icon: "lamp-desk",
+          },
+          {
+            name: "Luminária RGB de Mesa",
+            description: "Iluminação colorida para criar clima em quarto, setup, sala ou espaço de entretenimento.",
+            type: "RGB",
+            icon: "lightbulb",
+          },
+        ],
       },
       {
         name: "Mesa lateral decorativa",
-        description: "Apoio compacto para sala, quarto ou cantinho de leitura.",
+        description: "Escolha uma mesa compacta para sala, quarto ou cantinho de leitura.",
         category: "Mobiliário",
-        market: "Amazon",
+        market: "4 modelos",
         marketClass: "market-amazon",
         icon: "layers",
         artClass: "art-coral",
-        url: "https://www.amazon.com.br/s?k=mesa+lateral+decorativa",
+        models: [
+          {
+            name: "Mesa Lateral Redonda",
+            description: "Mesa compacta com tampo redondo para apoio ao lado do sofá, poltrona ou cama.",
+            type: "Redonda",
+            icon: "circle",
+          },
+          {
+            name: "Mesa Lateral em C",
+            description: "Formato em C que pode aproximar o tampo do sofá e facilitar o uso com notebook, copos e objetos.",
+            type: "Formato C",
+            icon: "panel-left",
+          },
+          {
+            name: "Mesa Lateral Industrial",
+            description: "Modelo com combinação de madeira e estrutura metálica para ambientes de estilo industrial.",
+            type: "Industrial",
+            icon: "table-2",
+          },
+          {
+            name: "Mesa Lateral de Madeira",
+            description: "Opção de visual mais natural para compor salas, quartos e espaços aconchegantes.",
+            type: "Madeira",
+            icon: "table-2",
+          },
+        ],
       },
       {
         name: "Espelho decorativo",
-        description: "Ajuda a ampliar visualmente o ambiente e completar a parede.",
+        description: "Escolha um formato de espelho para valorizar a parede e o ambiente.",
         category: "Parede",
-        market: "Shopee",
+        market: "4 modelos",
         marketClass: "market-shopee",
         icon: "frame",
         artClass: "art-sun",
-        url: "https://shopee.com.br/search?keyword=espelho%20decorativo",
+        models: [
+          {
+            name: "Espelho Orgânico Decorativo",
+            description: "Espelho de formato irregular para composições modernas em quartos, salas e halls.",
+            type: "Orgânico",
+            icon: "frame",
+          },
+          {
+            name: "Espelho Redondo Decorativo",
+            description: "Formato clássico e fácil de combinar com diferentes estilos de decoração.",
+            type: "Redondo",
+            icon: "circle",
+          },
+          {
+            name: "Espelho Adnet com Alça",
+            description: "Modelo redondo com alça decorativa para banheiros, quartos e halls de entrada.",
+            type: "Adnet",
+            icon: "circle-dot",
+          },
+          {
+            name: "Espelho Corpo Inteiro",
+            description: "Espelho maior para visualizar o look completo e ampliar visualmente o ambiente.",
+            type: "Grande",
+            icon: "rectangle-vertical",
+          },
+        ],
       },
       {
         name: "Prateleira flutuante",
-        description: "Solução compacta para organizar e expor objetos decorativos.",
+        description: "Escolha uma opção para organizar e expor objetos sem ocupar o piso.",
         category: "Organização",
-        market: "Mercado Livre",
+        market: "4 modelos",
         marketClass: "market-mercado-livre",
         icon: "house",
         artClass: "art-blue",
-        url: "https://lista.mercadolivre.com.br/prateleira-flutuante",
+        models: [
+          {
+            name: "Prateleira Flutuante 40 cm",
+            description: "Prateleira compacta para livros, quadros, plantas e pequenos objetos decorativos.",
+            type: "40 cm",
+            icon: "minus",
+          },
+          {
+            name: "Kit 3 Prateleiras Flutuantes",
+            description: "Conjunto para criar uma composição de parede e organizar diferentes objetos em níveis.",
+            type: "Kit",
+            icon: "layers-3",
+          },
+          {
+            name: "Prateleira Industrial com Suporte",
+            description: "Modelo com suporte aparente para uma proposta de decoração industrial e funcional.",
+            type: "Industrial",
+            icon: "shelves",
+          },
+          {
+            name: "Prateleira de Canto",
+            description: "Opção feita para aproveitar cantos e criar espaço extra para objetos e decoração.",
+            type: "Canto",
+            icon: "corner-up-right",
+          },
+        ],
       },
     ],
   },
@@ -294,10 +549,10 @@ function renderOffers(product) {
 
 function showModelSelector(product) {
   currentModelParent = product;
-  productModalKicker.textContent = "Escolha um modelo";
+  productModalKicker.textContent = "Escolha uma opção";
   productModalTitle.textContent = product.name;
   productModalDescription.textContent =
-    "Toque em um modelo para ver a descrição e comparar o produto nas 3 plataformas.";
+    "Toque em uma opção para ver a descrição e comparar o produto na Amazon, Shopee e Mercado Livre.";
 
   productModalBack.hidden = true;
   offerList.hidden = true;
@@ -452,7 +707,7 @@ function renderCategory(categoryValue) {
             <h3 class="product-title">${product.name}</h3>
             <p class="product-description">${product.description}</p>
             <span class="product-card-action" aria-hidden="true">
-              ${Array.isArray(product.models) && product.models.length ? "Ver modelos de fones" : "Ver detalhes e 3 lojas"}
+              ${Array.isArray(product.models) && product.models.length ? "Ver modelos e 3 lojas" : "Ver detalhes e 3 lojas"}
               <i data-lucide="${Array.isArray(product.models) && product.models.length ? "chevron-right" : "chevrons-up"}" aria-hidden="true"></i>
             </span>
           </div>

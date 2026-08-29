@@ -1,108 +1,55 @@
-# VH Achados — versão para VS Code
+# VH Achados Mobile V7
 
-Esta versão foi feita com **HTML, CSS e JavaScript puro**. Você não precisa instalar Node.js, React ou outras dependências.
+Nesta versão, **todos os produtos das três categorias** usam a mesma navegação em duas etapas que começou no Fone Bluetooth.
 
-## Como abrir no VS Code
+## Como funciona
 
-1. Extraia o arquivo `VH-Achados-VSCode.zip`.
-2. Abra a pasta extraída.
-3. Dê dois cliques em `VH-Achados.code-workspace`.
-4. Se o Windows perguntar, escolha abrir com o **Visual Studio Code**.
+1. A pessoa escolhe uma categoria: Eletrônicos, Moda masculina ou Móveis decorativos.
+2. Toca em um produto principal, por exemplo `Smartwatch inteligente`.
+3. Abre uma lista com 4 modelos/opções daquele produto.
+4. Ao tocar em uma opção, aparecem a descrição e três plataformas:
+   - Amazon
+   - Shopee
+   - Mercado Livre
+5. O botão `Opções` volta para a lista anterior.
 
-## Como visualizar o site
+## Produtos que agora possuem opções
 
-### Maneira mais simples
+### Eletrônicos
+- Fone Bluetooth
+- Smartwatch inteligente
+- Mini projetor portátil
+- Carregador portátil
 
-Dê dois cliques no arquivo `index.html`. Ele abrirá no navegador.
+### Moda masculina
+- Camiseta masculina premium
+- Tênis casual masculino
+- Relógio masculino
+- Carteira slim
 
-### Maneira recomendada no VS Code
+### Móveis decorativos
+- Luminária de mesa
+- Mesa lateral decorativa
+- Espelho decorativo
+- Prateleira flutuante
 
-1. Instale a extensão **Live Server**, de Ritwick Dey.
-2. No VS Code, clique com o botão direito em `index.html`.
-3. Clique em **Open with Live Server**.
+Cada produto possui 4 opções de exemplo. Os links das lojas são gerados como buscas pelo nome da opção até que você substitua por seus links de afiliado reais.
 
-Ao salvar uma alteração, a página será atualizada automaticamente.
+## Como colocar preços e links reais
 
-## Onde editar cada coisa
-
-- `index.html`: nome, títulos, textos e estrutura da página.
-- `style.css`: cores, tamanhos, espaços e aparência.
-- `script.js`: produtos, categorias e links de afiliado.
-- `assets/favicon.svg`: ícone da aba do navegador.
-
-## Como colocar seus links de afiliado
-
-Abra `script.js`, procure o produto e substitua o endereço que aparece depois de `url:` pelo seu link de afiliado.
-
-Exemplo:
-
-```js
-url: "COLE_AQUI_SEU_LINK_DE_AFILIADO",
-```
-
-Repita isso para cada produto da Amazon, Shopee e Mercado Livre.
-
-## Como adicionar outro produto
-
-No `script.js`, copie um bloco de produto completo, cole dentro da lista da categoria desejada e altere os dados:
-
-```js
-{
-  name: "Nome do produto",
-  description: "Descrição curta do produto.",
-  category: "Tipo",
-  market: "Amazon",
-  marketClass: "market-amazon",
-  icon: "shopping-bag",
-  artClass: "art-blue",
-  url: "COLE_AQUI_SEU_LINK_DE_AFILIADO",
-},
-```
-
-## Atenção
-
-As fotos principais e os ícones são carregados pela internet. Para vê-los, mantenha o computador conectado durante a visualização.
-
-## V4 — correção mobile
-- viewport reforçado para usar a largura real do celular;
-- proteção contra layout de desktop vazando horizontalmente;
-- layout mobile também é ativado por características de dispositivo/touch;
-- cards ocupam quase toda a largura da tela;
-- somente um produto fica em destaque, com parte do próximo aparecendo para indicar o arraste;
-- carrossel continua funcionando com toque e scroll-snap.
-
-Depois de publicar na Vercel, abra o link em uma nova aba/anônima ou atualize sem cache. No Chrome Android, mantenha **Site para computador** desmarcado.
-
-## V5 — detalhes do produto e comparação de 3 lojas
-
-Agora você pode tocar em um produto (por exemplo, **Fone Bluetooth**) para abrir uma janela no celular com:
-
-- descrição do produto;
-- Amazon;
-- Shopee;
-- Mercado Livre;
-- campo de preço de cada loja;
-- botão **Ver oferta** para cada marketplace.
-
-Os preços do Fone Bluetooth estão como `Consultar preço` porque preços reais mudam e não devem ser inventados. Para colocar um valor fixo, abra `script.js` e altere:
+Abra `script.js`, localize a opção desejada e adicione:
 
 ```js
 prices: {
-  Amazon: "R$ 00,00",
-  Shopee: "R$ 00,00",
-  "Mercado Livre": "R$ 00,00",
+  Amazon: "R$ 99,90",
+  Shopee: "R$ 89,90",
+  "Mercado Livre": "R$ 94,90",
+},
+links: {
+  Amazon: "SEU_LINK_DE_AFILIADO",
+  Shopee: "SEU_LINK_DE_AFILIADO",
+  "Mercado Livre": "SEU_LINK_DE_AFILIADO",
 },
 ```
 
-Na mesma parte, substitua os links de busca pelos seus links de afiliado em `links`.
-
-
-## Novidade da V6 — modelos dentro de Fone Bluetooth
-
-Agora o fluxo funciona em 3 etapas:
-
-1. O visitante toca em **Fone Bluetooth**.
-2. Aparece uma lista de modelos de fone.
-3. Ao tocar em um modelo, aparecem a descrição e as ofertas na **Amazon, Shopee e Mercado Livre**.
-
-Os modelos ficam no arquivo `script.js`, dentro de `models:`. Para trocar nomes, descrições, preços ou links, edite os dados de cada modelo. Quando um modelo não tiver links próprios, o site cria automaticamente uma busca pelo nome dele nas três plataformas.
+Se `prices` não estiver preenchido, o site mostra `Consultar preço`. Se `links` não estiver preenchido, o site abre uma busca do produto no marketplace.
