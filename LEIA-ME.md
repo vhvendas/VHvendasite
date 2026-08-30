@@ -1,4 +1,4 @@
-# VH Achados Mobile V10
+# VH Achados Mobile V12
 
 Nesta versão, **todos os produtos das três categorias** usam a mesma navegação em duas etapas que começou no Fone Bluetooth.
 
@@ -58,7 +58,7 @@ Se `prices` não estiver preenchido, o site mostra `Consultar preço`. Se `links
 ## V8 — primeiro link de afiliado real
 
 O modelo **JBL Tune 520BT** agora possui:
-- link de afiliado da Shopee: https://s.shopee.com.br/1LfMHOG2jp
+- link de afiliado da Shopee: https://s.shopee.com.br/7KwZVssivQ
 - preço de referência da Shopee: R$ 206,37 no Pix (consultado em 29/08/2026)
 - imagem oficial do modelo (JBL)
 - especificações resumidas (Pure Bass, Bluetooth 5.3, até 57h, carga rápida e multiponto)
@@ -76,3 +76,15 @@ Amazon continua usando busca comum até ser fornecido o link de afiliado.
 ## Identificação do anúncio no Mercado Livre
 
 O JBL Tune 520BT agora também guarda no código o ID informado do anúncio do Mercado Livre: `PY7V4L-KC5F`. O link de afiliado continua sendo `https://meli.la/2q1iGFg`.
+
+
+## V12 — QCY T13 com link real da Shopee
+
+O modelo **QCY T13** agora usa o link de afiliado enviado:
+- Shopee: https://s.shopee.com.br/30nabYQh4v
+- preço exibido na consulta: **R$ 171,39 no Pix** (consultado em 29/08/2026)
+- imagem do próprio anúncio da Shopee
+- descrição com Bluetooth 5.1, ENC, IPX5 e até 8 horas de reprodução
+- Amazon e Mercado Livre continuam como buscas comuns até receberem links de afiliado próprios.
+
+O preço pode mudar no marketplace, por isso o site mantém o aviso de data da consulta.

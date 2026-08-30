@@ -42,7 +42,7 @@ const categories = [
             ],
             mercadoLivreId: "PY7V4L-KC5F",
             links: {
-              Shopee: "https://s.shopee.com.br/1LfMHOG2jp",
+              Shopee: "https://s.shopee.com.br/7KwZVssivQ",
               "Mercado Livre": "https://meli.la/2q1iGFg",
             },
             prices: {
@@ -53,9 +53,26 @@ const categories = [
           },
           {
             name: "QCY T13",
-            description: "Fone Bluetooth TWS compacto com estojo, indicado para praticidade e mobilidade.",
+            description: "Fone de ouvido sem fio QCY T13 com Bluetooth 5.1, redução de ruído ENC, resistência IPX5 e até 8 horas de reprodução.",
             type: "TWS",
             icon: "ear",
+            image: "https://down-br.img.susercontent.com/file/br-11134207-820m9-mn5bkiu4xxj493",
+            imageAlt: "Fone de ouvido QCY T13 preto com estojo de carregamento",
+            features: [
+              "Bluetooth 5.1",
+              "Redução de ruído ENC para chamadas",
+              "Resistência IPX5",
+              "Até 8 horas de reprodução",
+              "3 variações disponíveis no anúncio",
+              "Estocado e entregue pela Shopee",
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/30nabYQh4v",
+            },
+            prices: {
+              Shopee: "R$ 171,39 no Pix",
+            },
+            priceChecked: "29/08/2026",
           },
           {
             name: "Edifier W600BT",
