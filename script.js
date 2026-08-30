@@ -232,7 +232,7 @@ const categories = [
       },
       {
         name: "Mini projetor portátil",
-        description: "Escolha entre opções compactas para vídeos, jogos e apresentações.",
+        description: "Escolha entre opções compactas para filmes, vídeos, espelhamento e entretenimento em casa.",
         category: "Imagem",
         market: "4 modelos",
         marketClass: "market-mercado-livre",
@@ -241,21 +241,69 @@ const categories = [
         models: [
           {
             name: "HY300 Pro",
-            description: "Mini projetor compacto com sistema inteligente, indicado para filmes, séries e uso casual em casa.",
+            description: "Mini projetor HY300 Pro com Wi‑Fi e Bluetooth, indicado para filmes, séries e espelhamento de tela no dia a dia.",
             type: "Projetor compacto",
             icon: "projector",
+            image: "assets/projetor-hy300.svg",
+            imageAlt: "Ilustração do mini projetor HY300 Pro",
+            features: [
+              "Wi‑Fi para espelhamento e conexão sem fio",
+              "Bluetooth para áudio e acessórios",
+              "Compatível com Android e iOS",
+              "Formato compacto para quarto, sala ou viagem",
+              "Indicado para filmes, séries e uso casual em casa"
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/20v3VaXBwv",
+            },
+            prices: {
+              Shopee: "R$ 207,00 no Pix",
+            },
+            priceChecked: "30/08/2026",
           },
           {
-            name: "HY320 Mini",
-            description: "Projetor portátil para quem busca uma imagem maior em quartos, salas e pequenos ambientes.",
+            name: "HY320 Mini Smart TV 4K",
+            description: "Projetor de vídeo HY320 Mini Smart TV 4K na cor preta, voltado para imagem maior em quartos, salas e pequenos ambientes.",
             type: "Projetor portátil",
             icon: "projector",
+            image: "assets/projetor-hy320.svg",
+            imageAlt: "Ilustração do mini projetor HY320 Mini Smart TV 4K",
+            features: [
+              "Smart TV compacta com foco em entretenimento",
+              "Compatível com conteúdo 4K",
+              "Formato portátil para uso em diferentes ambientes",
+              "Boa opção para vídeos, filmes e apresentações",
+              "Acabamento preto e proposta de uso doméstico"
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/2VrK6VVHw2",
+            },
+            prices: {
+              Shopee: "R$ 292,50 no Pix",
+            },
+            priceChecked: "30/08/2026",
           },
           {
-            name: "Mini Projetor Android 11",
-            description: "Opção compacta com sistema Android para acessar aplicativos e reproduzir conteúdos em uma tela maior.",
+            name: "HY300 Bivolt 4K",
+            description: "Projetor HY300 Bivolt 4K com Wi‑Fi e Bluetooth, compatível com Android e iOS, para quem quer uma opção compacta e versátil.",
             type: "Smart projetor",
             icon: "monitor-play",
+            image: "assets/projetor-hy300-bivolt.svg",
+            imageAlt: "Ilustração do projetor HY300 Bivolt 4K",
+            features: [
+              "Bivolt para uso mais prático",
+              "Conexão Wi‑Fi e Bluetooth",
+              "Compatível com Android e iOS",
+              "4K compatível conforme anúncio",
+              "Pensado para filmes, vídeos e espelhamento"
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/2LXtuCVvH1",
+            },
+            prices: {
+              Shopee: "R$ 207,00 no Pix",
+            },
+            priceChecked: "30/08/2026",
           },
           {
             name: "Projetor Portátil Wi‑Fi 6",
