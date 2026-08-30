@@ -186,14 +186,14 @@ const categories = [
             description: "Smartwatch Haylou Solar Lite 2 com tela AMOLED, chamadas Bluetooth, suporte ao Strava e bateria de longa duração para uso diário e treino.",
             type: "Smartwatch",
             icon: "watch",
-            image: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lxgfg3wthp4bc1",
+            image: "https://haylou.com/cdn/shop/files/Solar-Lite-2_-1.jpg?v=1769752737",
             imageAlt: "Smartwatch Haylou Solar Lite 2 com tela AMOLED",
             features: [
               "Tela AMOLED com AOD",
               "Chamadas Bluetooth",
               "Bluetooth 5.4",
               "Compatível com Strava",
-              "Até 15 dias de bateria em uso típico",
+              "Até 30 dias de bateria em modo de longa duração",
               "Proteção 1 ATM para uso diário",
               "Visual esportivo para corrida e treino",
             ],
@@ -210,7 +210,7 @@ const categories = [
             description: "Smartwatch HUAWEI WATCH FIT 5 com tela AMOLED de 1,82 polegadas, GPS integrado, design leve e armazenamento ampliado para treino e rotina.",
             type: "Smartwatch",
             icon: "watch",
-            image: "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/wearables/watch-fit-4-pro/images/kv/watch-fit-4-pro-kv-black.png",
+            image: "https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/wearables/watch-fit5/assets/after/huawei-watch-fit-5-battery-life-1.png",
             imageAlt: "Smartwatch HUAWEI WATCH FIT 5 preto",
             features: [
               "Tela AMOLED de 1,82 polegadas",
@@ -612,6 +612,14 @@ const tabButtons = Array.from(document.querySelectorAll("[data-tab]"));
 const categoryIntro = document.querySelector("#category-intro");
 const productGrid = document.querySelector("#product-grid");
 const catalogContent = document.querySelector("#catalog-content");
+function handleProductImageError(img) {
+  if (!img) return;
+  const wrapper = img.parentElement;
+  img.removeAttribute("src");
+  img.style.display = "none";
+  if (wrapper) wrapper.classList.add("image-load-failed");
+}
+
 const productModal = document.querySelector("#product-modal");
 const productModalTitle = document.querySelector("#product-modal-title");
 const productModalDescription = document.querySelector("#product-modal-description");
@@ -709,8 +717,13 @@ function renderProductMedia(product) {
 
   if (productModalImage) {
     if (hasImage) {
+      productModalImage.style.display = "block";
+      productModalImage.onerror = () => {
+        productModalImage.style.display = "none";
+      };
       productModalImage.src = product.image;
       productModalImage.alt = product.imageAlt || product.name;
+      productModalImage.referrerPolicy = "no-referrer";
       productModalImage.hidden = false;
     } else {
       productModalImage.hidden = true;
@@ -755,7 +768,7 @@ function showModelSelector(product) {
       (model, index) => `
         <button class="model-card" type="button" data-model-index="${index}">
           ${model.image
-            ? `<span class="model-thumb"><img src="${model.image}" alt="" loading="lazy" /></span>`
+            ? `<span class="model-thumb"><img src="${model.image}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="handleProductImageError(this)" /></span>`
             : `<span class="model-icon" aria-hidden="true"><i data-lucide="${model.icon || "headphones"}"></i></span>`}
           <span class="model-copy">
             <span class="model-type">${model.type || "Modelo"}</span>
