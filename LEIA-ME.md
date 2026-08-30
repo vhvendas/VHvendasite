@@ -1,4 +1,4 @@
-# VH Achados Mobile V12
+# VH Achados Mobile V13
 
 Nesta versão, **todos os produtos das três categorias** usam a mesma navegação em duas etapas que começou no Fone Bluetooth.
 
@@ -88,3 +88,17 @@ O modelo **QCY T13** agora usa o link de afiliado enviado:
 - Amazon e Mercado Livre continuam como buscas comuns até receberem links de afiliado próprios.
 
 O preço pode mudar no marketplace, por isso o site mantém o aviso de data da consulta.
+
+
+## V13 — Lenovo LP40 Pro / LP40 Plus com link real da Shopee
+
+O modelo **Lenovo LP40 Pro / LP40 Plus** agora usa o link de afiliado enviado:
+- Shopee: https://s.shopee.com.br/2BETeaedk0
+- preço exibido no anúncio consultado: **a partir de R$ 59,90** (consultado em 29/08/2026)
+- imagem do próprio anúncio da Shopee
+- descrição baseada no anúncio: fone Bluetooth in-ear com som HD e redução de ruído
+- recursos mostrados nas imagens do anúncio: pareamento automático e chamadas binaurais em HD
+- 11 variações disponíveis no anúncio
+- Amazon e Mercado Livre continuam como buscas comuns até receberem links de afiliado próprios.
+
+O preço pode variar conforme a opção escolhida, cupons e alterações do marketplace; por isso o site mostra **A partir de R$ 59,90** e mantém a data da consulta.
