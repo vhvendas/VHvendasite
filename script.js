@@ -134,15 +134,52 @@ const categories = [
         models: [
           {
             name: "Redmi Watch 5 Active",
-            description: "Smartwatch com tela ampla e recursos para acompanhar rotina, notificações e atividades físicas.",
+            description: "Smartwatch Xiaomi Redmi Watch 5 Active Global com tela LCD de 2 polegadas, chamadas Bluetooth, Xiaomi HyperOS e bateria de longa duração.",
             type: "Smartwatch",
             icon: "watch",
+            image: "https://down-br.img.susercontent.com/file/sg-11134201-824hs-me01r50ubdoh36",
+            imageAlt: "Smartwatch Xiaomi Redmi Watch 5 Active preto",
+            features: [
+              "Tela LCD quadrada de 2 polegadas",
+              "Chamadas Bluetooth com microfone e alto-falante",
+              "Até 18 dias de bateria em uso típico",
+              "Mais de 140 modos de treino",
+              "Monitoramento de frequência cardíaca e oxigênio no sangue",
+              "Resistência à água 5 ATM",
+              "Bluetooth 5.3 e sistema Xiaomi HyperOS",
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/AAGlCp2fzy",
+            },
+            prices: {
+              Shopee: "R$ 284,31 no Pix com cupom",
+            },
+            priceChecked: "29/08/2026",
           },
           {
-            name: "Amazfit Bip 5",
-            description: "Relógio inteligente com foco em atividades, acompanhamento diário e visual leve para uso contínuo.",
+            name: "Amazfit Bip Max",
+            description: "Smartwatch Amazfit Bip Max com tela AMOLED de 2,07 polegadas, GPS integrado, 4 GB de armazenamento, mapas offline e bateria de até 20 dias.",
             type: "Smartwatch",
             icon: "watch",
+            image: "https://down-br.img.susercontent.com/file/br-11134207-820m4-mrpa6zvyjsavfc",
+            imageAlt: "Smartwatch Amazfit Bip Max com tela AMOLED",
+            features: [
+              "Tela AMOLED de 2,07 polegadas",
+              "Brilho máximo de até 3.000 nits",
+              "Até 20 dias de bateria em uso típico",
+              "GPS integrado com 5 sistemas de posicionamento",
+              "4 GB de armazenamento para mapas e conteúdo",
+              "Mais de 150 modos esportivos",
+              "Monitoramento de frequência cardíaca, SpO2, estresse e sono",
+              "Resistência à água 5 ATM",
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/9zxL0W3JKx",
+            },
+            prices: {
+              Shopee: "R$ 572,08 no Pix",
+            },
+            priceChecked: "29/08/2026",
           },
           {
             name: "Haylou Solar Plus RT3",

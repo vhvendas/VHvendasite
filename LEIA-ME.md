@@ -107,3 +107,13 @@ O preço pode variar conforme a opção escolhida, cupons e alterações do mark
 ## Atualização V14 — Edifier W600BT
 
 O modelo Edifier W600BT agora possui imagem, descrição, especificações, preço da Shopee e o link de afiliado informado. O preço exibido foi consultado em 29/08/2026 e pode mudar no marketplace.
+
+
+## Atualização V15
+
+Na seção **Smartwatch inteligente** foram adicionados dados reais de dois anúncios da Shopee:
+
+- **Xiaomi Redmi Watch 5 Active** — link de afiliado `https://s.shopee.com.br/AAGlCp2fzy`, imagem, descrição, recursos e preço consultado.
+- **Amazfit Bip Max** — link de afiliado `https://s.shopee.com.br/9zxL0W3JKx`, imagem, descrição, recursos e preço consultado.
+
+Os preços foram consultados em 29/08/2026 e podem mudar na Shopee.
