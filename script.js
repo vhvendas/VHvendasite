@@ -232,7 +232,7 @@ const categories = [
       },
       {
         name: "Mini projetor portátil",
-        description: "Escolha entre opções compactas para filmes, vídeos, espelhamento e entretenimento em casa.",
+        description: "Escolha um mini projetor e veja descrição, preço e opções de compra.",
         category: "Imagem",
         market: "4 modelos",
         marketClass: "market-mercado-livre",
@@ -240,40 +240,40 @@ const categories = [
         artClass: "art-sun",
         models: [
           {
-            name: "HY300 Pro",
-            description: "Mini projetor HY300 Pro com Wi‑Fi e Bluetooth, indicado para filmes, séries e espelhamento de tela no dia a dia.",
+            name: "HY300 Bivolt 4K — Oferta 1",
+            description: "Projetor HY300 bivolt com Wi‑Fi e Bluetooth, compatível com Android e iOS, voltado para filmes, séries, vídeos e espelhamento.",
             type: "Projetor compacto",
             icon: "projector",
-            image: "assets/projetor-hy300.svg",
-            imageAlt: "Ilustração do mini projetor HY300 Pro",
+            image: "https://imgs.pontofrio.com.br/1563917682/1xg.jpg?imwidth=1000",
+            imageAlt: "Projetor HY300 branco portátil",
             features: [
-              "Wi‑Fi para espelhamento e conexão sem fio",
-              "Bluetooth para áudio e acessórios",
+              "Wi‑Fi e Bluetooth",
               "Compatível com Android e iOS",
-              "Formato compacto para quarto, sala ou viagem",
-              "Indicado para filmes, séries e uso casual em casa"
+              "Bivolt",
+              "Suporte a vídeo 4K conforme anúncio",
+              "Design giratório e portátil",
             ],
             links: {
               Shopee: "https://s.shopee.com.br/20v3VaXBwv",
             },
             prices: {
-              Shopee: "R$ 207,00 no Pix",
+              Shopee: "R$ 195,50 no Pix com cupom",
             },
             priceChecked: "30/08/2026",
           },
           {
             name: "HY320 Mini Smart TV 4K",
-            description: "Projetor de vídeo HY320 Mini Smart TV 4K na cor preta, voltado para imagem maior em quartos, salas e pequenos ambientes.",
+            description: "Projetor HY320 Mini Smart TV 4K preto, compacto para quartos e salas, com proposta de entretenimento e projeção em tela grande.",
             type: "Projetor portátil",
             icon: "projector",
-            image: "assets/projetor-hy320.svg",
-            imageAlt: "Ilustração do mini projetor HY320 Mini Smart TV 4K",
+            image: "https://imgs.pontofrio.com.br/1579322686/1xg.jpg?imwidth=1000",
+            imageAlt: "Projetor HY320 Mini preto com controle remoto",
             features: [
-              "Smart TV compacta com foco em entretenimento",
-              "Compatível com conteúdo 4K",
-              "Formato portátil para uso em diferentes ambientes",
-              "Boa opção para vídeos, filmes e apresentações",
-              "Acabamento preto e proposta de uso doméstico"
+              "Smart TV integrada",
+              "Suporte a conteúdo 4K conforme anúncio",
+              "Formato portátil",
+              "Indicado para filmes e vídeos",
+              "Cor preta",
             ],
             links: {
               Shopee: "https://s.shopee.com.br/2VrK6VVHw2",
@@ -284,24 +284,24 @@ const categories = [
             priceChecked: "30/08/2026",
           },
           {
-            name: "HY300 Bivolt 4K",
-            description: "Projetor HY300 Bivolt 4K com Wi‑Fi e Bluetooth, compatível com Android e iOS, para quem quer uma opção compacta e versátil.",
-            type: "Smart projetor",
-            icon: "monitor-play",
-            image: "assets/projetor-hy300-bivolt.svg",
-            imageAlt: "Ilustração do projetor HY300 Bivolt 4K",
+            name: "HY300 Bivolt 4K — Oferta 2",
+            description: "Segunda oferta do mesmo projetor HY300 bivolt com Wi‑Fi e Bluetooth, compatível com Android e iOS.",
+            type: "Projetor compacto",
+            icon: "projector",
+            image: "https://imgs.pontofrio.com.br/1563917682/1xg.jpg?imwidth=1000",
+            imageAlt: "Projetor HY300 branco portátil",
             features: [
-              "Bivolt para uso mais prático",
-              "Conexão Wi‑Fi e Bluetooth",
+              "Mesmo modelo HY300 do primeiro anúncio",
+              "Wi‑Fi e Bluetooth",
               "Compatível com Android e iOS",
-              "4K compatível conforme anúncio",
-              "Pensado para filmes, vídeos e espelhamento"
+              "Bivolt",
+              "Suporte a vídeo 4K conforme anúncio",
             ],
             links: {
               Shopee: "https://s.shopee.com.br/2LXtuCVvH1",
             },
             prices: {
-              Shopee: "R$ 207,00 no Pix",
+              Shopee: "R$ 195,50 no Pix com cupom",
             },
             priceChecked: "30/08/2026",
           },
@@ -712,6 +712,7 @@ function getProductOffers(product) {
     store,
     url: links[store],
     price: prices[store] || "Consultar preço",
+    isDirectLink: Boolean(product.links && product.links[store]),
     ...marketplaceInfo[store],
   }));
 }
@@ -738,7 +739,7 @@ function renderOffers(product) {
             <a
               class="offer-button"
               href="${offer.url}"
-              target="_blank"
+              target="${offer.store === "Shopee" && offer.isDirectLink ? "_self" : "_blank"}"
               rel="sponsored noopener noreferrer"
               aria-label="Ver ${product.name} na ${offer.store}"
             >
