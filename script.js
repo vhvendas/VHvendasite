@@ -76,9 +76,27 @@ const categories = [
           },
           {
             name: "Edifier W600BT",
-            description: "Headphone Bluetooth de visual discreto para música, estudo, trabalho e vídeos.",
+            description: "Headphone Bluetooth 5.1 Edifier W600BT com até 30 horas de bateria, drivers de 40 mm e design over-ear confortável para música, estudo, trabalho e vídeos.",
             type: "Headphone",
             icon: "headphones",
+            image: "https://down-br.img.susercontent.com/file/br-11134201-7r98o-ls00u459hfrv67",
+            imageAlt: "Headphone Bluetooth Edifier W600BT preto",
+            features: [
+              "Bluetooth 5.1",
+              "Até 30 horas de bateria",
+              "Drivers de 40 mm",
+              "Design over-ear com almofadas confortáveis",
+              "Carregamento USB-C em cerca de 3 horas",
+              "Entrada P2 de 3,5 mm para uso com fio",
+              "3 variações disponíveis no anúncio da Shopee",
+            ],
+            links: {
+              Shopee: "https://s.shopee.com.br/5q7m1vgX7g",
+            },
+            prices: {
+              Shopee: "R$ 189,05 no Pix",
+            },
+            priceChecked: "29/08/2026",
           },
           {
             name: "Lenovo LP40 Pro / LP40 Plus",
